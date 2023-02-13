@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="typeof weather.main != 'undefined' && weather.main.temp > 16 ? 'warm' : ''">
+  <div id="app" :class="typeof weather.main != 'undefined' && weather.main.temp > 70 ? 'warm' : ''">
     <main>
       <div class="search-box">
         <input type="text" class="search-bar" placeholder="Search..." v-model="query" @keypress="fetchWeather" />
@@ -13,6 +13,10 @@
 
         <div class="weather-box">
           <div class="temp">{{ Math.round(weather.main.temp) }}°f</div>
+          <div class="weather-range-box">
+            <div class="temp-range">{{ Math.round(weather.main.temp_max) }}°f High,
+              {{ Math.round(weather.main.temp_min) }}°f Low</div>
+          </div>
           <div class="weather-status">{{ weather.weather[0].main }}</div>
         </div>
       </div>
@@ -145,11 +149,28 @@ main {
   font-weight: 900;
 
   text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
-  background-color: rgba(255, 255, 255, .25);
+  background-color: rgba(255, 255, 255, .3);
   border-radius: 20px;
-  margin: 30px 0;
+  margin: 30px 0 10px;
 
   box-shadow: 3px 6px rgba(0, 0, 0, .25);
+}
+
+.weather-box .weather-range-box {
+  width: fit-content;
+  padding: 10px 18px;
+
+  text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
+  margin: 20px auto 30px;
+}
+
+.weather-box .weather-range-box .temp-range {
+  display: inline-block;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 600;
+  font-style: italic;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.25);
 }
 
 .weather-box .weather-status {
