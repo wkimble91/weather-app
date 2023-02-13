@@ -1,6 +1,12 @@
-# weather
+# Minimalist Nomad
+==================================================
 
-## Project setup
+ A simple Weather App, built on [VueJS].
+
+[VueJS]: https://vuejs.org/
+
+## Getting Started
+### Project setup
 ```
 npm install
 ```
