@@ -1,7 +1,7 @@
-# Minimalist Nomad
+# Weather App
 ==================================================
 
- A simple Weather App, built on [VueJS].
+ A simple mobile Weather App, built on [VueJS].
 
 [VueJS]: https://vuejs.org/
 
